@@ -19,7 +19,8 @@ To configure your Github in every computer there are some steps that you need to
 3. To actualize the changes that you recently made, you need to run: git add --a
 4. To check the current status of your 'new' files, you run: git staus. Here they need to be green!
 5. After, to send your data you need to commit! Run: git commit
-   Wehn you run git commit, you always need to write some kind of message in the nano format.
+   When you run git commit, you always need to write some kind of message in the nano format.
+6. Finally, you run: git push
    Here they will ask you for your Github User name and the password. The passowrd is a secreted code/token that you create in your Github account.
    My current token is available until Octuber and in Slack (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).
 7. Finally, you run: git push
@@ -30,7 +31,7 @@ Github is made for code only, you do not want your data files there!
 Therefore, you need to script your Github in a way that it ignoes some types of files like csv, pdf and png.
 It already has a folder with this code and it is called gitignore. 
 1. To add files types to this folder, run: nano (for writing) .gitignore
-2. To save, run: strg O
+2. To save, run: strg O, enter
 3. To exit, run: strg X
    This will open up the gitignore file and with the nano you can edit its conn´tent.
    Remember that you also need to push and commit to these changes.
