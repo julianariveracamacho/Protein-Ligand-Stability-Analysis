@@ -19,9 +19,10 @@ To configure your Github in every computer there are some steps that you need to
 3. To actualize the changes that you recently made, you need to run: git add --a
 4. To check the current status of your 'new' files, you run: git staus. Here they need to be green!
 5. After, to send your data you need to commit! Run: git commit
+   Wehn you run git commit, you always need to write some kind of message in the nano format.
    Here they will ask you for your Github User name and the password. The passowrd is a secreted code/token that you create in your Github account.
    My current token is available until Octuber and in Slack (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).
-6. Finally, you run: git push
+7. Finally, you run: git push
    Now your code will be saved in the Github repository!
 
 Some relevant information: 
