@@ -2,20 +2,24 @@
 
 This is my labrotation in AI powered Drug Discovery. 
 In this project, I was responsible for the analysis of the data of PAH and GCDH Proteins. 
-They are one of many enzymes that cause rares diseases. We are tryng to discover pharmacological chaperons that influence the stability of the enzymes and therefore their functionality. 
-I recived the process data and my main job is to create figures to visulize the ligands, their binding positions, and their binding properpies. 
+They are one of many enzymes that cause rares diseases. We are tryng to discover pharmacological chaperons that influence the stability of the enzymes, and, therefore, their functionality. 
+I recived the process data and my main job is to create figures to visulize the ligands, their binding positions, and their binding properties. 
 To do so, I learned to code in python and the terminal. 
 
 One of the important things that you need as a coder is Github:
 Gitbhub is a repository to save your data online and trackback every change that you made in your code. 
+
 To configure your Github in every computer there are some steps that you need to follow: 
+
 1. You need to install the github in ypur computer/and terminal service.
-2. After creating your accpount in github, you need to run the following coomands
-   git config --global user.email "you@example.com"
-   git config --global user.name "Your Name"
-   git config --global core.editor "nano"
-   git config --global http.postBuffer 157286400
-   After running these comands, you are ready to start with your Github.
+2. After creating your accpount in github, you need to run the following command
+- git config --global user.email "you@example.com"
+- git config --global user.name "Your Name"
+- git config --global core.editor "nano"
+- git config --global http.postBuffer 157286400
+- After running these comands, you are ready to start with your Github.
+- If you already did  this and want to actualize the status of your github, you just need to access the folder that is made for the Github connection.
+   
 3. To actualize the changes that you recently made, you need to run: git add --a
 4. To check the current status of your 'new' files, you run: git staus. Here they need to be green!
 5. After, to send your data you need to commit! Run: git commit
