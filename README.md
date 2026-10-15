@@ -1,4 +1,4 @@
-# Enzyme Stability
+# Protein–Ligand Stability Analysis
 ## Protein–ligand data analysis for pharmacological-chaperone research
 
 **Juliana Rivera Camacho · Research lab rotation · Universität Hamburg / UKE research context**
