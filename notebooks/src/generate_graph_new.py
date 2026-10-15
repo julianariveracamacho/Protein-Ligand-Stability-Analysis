@@ -256,9 +256,9 @@ def get_ligand_protein_atoms_from_plip(x):
         feature = 'pication_ligand_ring' if types[0] == 'ligand' else 'pication_ligand_charge'
         
     elif itype == 'metal_complex':
-        lig_idx = idx.metal_orig_idx
-        prot_idx = idx.target_orig_idx
-        feature = f'metalic_{idx.metal_type}'
+        lig_idx = x.metal_orig_idx
+        prot_idx = x.target_orig_idx
+        feature = f'metalic_{x.metal_type}'
 
     result = {
         'itype'       : itype,

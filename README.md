@@ -5,7 +5,7 @@
 **Juliana Rivera Camacho · M.Sc. Molecular Life Sciences · Universität Hamburg**  
 **Research setting:** Universitätsklinikum Hamburg-Eppendorf (UKE) · Research lab rotation
 
-Python notebooks for investigating protein stability and protein–ligand interaction patterns in a research project involving **phenylalanine hydroxylase (PAH)** and **glutaryl-CoA dehydrogenase (GCDH)**. The notebooks currently shown focus primarily on PAH.
+Python notebooks for investigating protein stability and protein–ligand interaction patterns in a research project involving **phenylalanine hydroxylase (PAH)** and **glutaryl-CoA dehydrogenase (GCDH)**. The original research focused primarily on PAH. The runnable public demo uses fabricated counts only.
 
 The project explores computational patterns that may help explain differences between compound groups associated with protein stabilization, destabilization or no effect. It supports pharmacological-chaperone research through data processing, structural analysis and scientific visualization.
 
@@ -19,7 +19,7 @@ This repository focuses on **analysis of processed research inputs**. It does no
 
 | Research focus | Approach | Relevance to discovery research |
 | --- | --- | --- |
-| Protein stability | Visualization of predicted variant effects alongside variant-position and protein-domain annotations | Relating variant positions to protein context |
+| Protein stability | Visualization of supplied predicted variant effects using explicit input positions | Relating variant positions to protein context |
 | Structural analysis | Residue-level pocket mapping and comparison of docking poses | Examining predicted ligand environments |
 | Protein–ligand interactions | Processing interaction profiles into residue-by-feature matrices | Characterizing non-covalent interaction patterns |
 | Data analysis | Compound-level aggregation, group comparisons and exploratory contingency-table analysis | Exploring compound-group differences |
@@ -35,7 +35,7 @@ This repository focuses on **analysis of processed research inputs**. It does no
 
 ## Approach and workflow
 
-1. **Explore variant stability:** reshape predicted mutation effects into heatmaps and compare positions with protein-domain and variant annotations.
+1. **Explore variant stability:** reshape supplied mutation-effect predictions into heatmaps using explicit input positions.
 2. **Map ligand environments:** prepare protein–ligand complexes and extract nearby residues.
 3. **Compare poses:** build residue-presence matrices for selected docking poses and summarize contact frequencies.
 4. **Characterize interactions:** extract and visualize interaction classes using the supplied structural helper functions.
@@ -53,28 +53,44 @@ These tools support tabular processing, structural file handling, interaction ch
 - Residue proximity and docking-derived interactions are computational hypotheses, not experimental binding evidence.
 - Pose-level measurements for the same compound are related observations; they should not be treated as independent biological replicates.
 - Interaction counts depend on pose selection, processing settings and aggregation choices.
-- The statistical notebook scans thresholds and reports minimum p-values. Those values are exploratory and need a suitable selection/multiple-testing strategy before confirmatory interpretation.
+- The revised statistical workflow uses a fixed presence rule, compound-level Fisher tests and Benjamini–Yekutieli adjustment across the planned test family. Historical threshold-scanned results require reanalysis.
 - Missing raw inputs prevent an independent end-to-end reproduction from this repository alone.
+
+## Runnable example
+
+[Run the synthetic analysis](examples/synthetic/README.md):
+
+```bash
+python -m pip install -r requirements-demo.txt
+python examples/synthetic/run_demo.py
+python -m unittest discover -s tests -v
+```
+
+It generates 60 fabricated compounds with three poses each, validates inputs, summarizes at compound level and exports a figure and complete statistical tables. No patient or unpublished research inputs are required.
+
+![Synthetic interaction-count distributions; fabricated groups, not research findings](figures/synthetic_interactions.svg)
+
+**Synthetic demonstration only:** group differences are deliberately generated and support no biological conclusion. See the example guide for assumptions and outputs.
 
 ## Repository guide
 
 | Notebook | Purpose |
 | --- | --- |
-| [01 — Variant stability](notebooks/01_thermompnn_variants.ipynb) | Predicted ΔΔG, variant-position and protein-domain heatmaps |
+| [01 — Variant stability](notebooks/01_thermompnn_variants.ipynb) | Validated prediction-table loading and ΔΔG heatmap |
 | [02 — Ligand pockets](notebooks/02_protein_ligand_pocket.ipynb) | Pocket-residue extraction and ligand-by-residue visualization |
 | [03 — Docking poses](notebooks/03_protein_ligand_by_poses.ipynb) | Pose-specific residue mapping and contact-frequency summaries |
 | [04 — Interaction extraction](notebooks/04_ligand_molecular_interactions.ipynb) | Protein–ligand interaction processing |
-| [05 — Interaction maps](notebooks/05_ligand__molecular_interactions_figure.ipynb) | Interaction-type matrices and color-coded residue maps |
-| [06 — Compound summaries](notebooks/06_compund_interaction_sum.ipynb) | Interaction aggregation and violin/strip plots |
-| [07 — Exploratory statistics](notebooks/07_compound_chi_square_test.ipynb) | Threshold-based contingency tables and chi-square exploration |
+| [05 — Interaction maps](notebooks/05_ligand_molecular_interactions_figure.ipynb) | Interaction-type matrices and color-coded residue maps |
+| [06 — Compound summaries](notebooks/06_compound_interaction_summary.ipynb) | Interaction aggregation and violin/strip plots |
+| [07 — Exploratory statistics](notebooks/07_compound_interaction_statistics.ipynb) | Fixed-rule compound-level Fisher tests, effect sizes and BY adjustment |
 
-[Structural helper module](notebooks/src/generate_graph_new.py) contains complex preparation, pocket and interaction functions. The `training/` folder contains early learning and prototype notebooks; start with the numbered analysis notebooks above.
+[Structural helper module](notebooks/src/generate_graph_new.py) contains complex preparation, pocket and interaction functions. The `archive/learning/` folder contains early learning and prototype notebooks; start with the numbered analysis notebooks above.
 
 ### Reproducing the analyses
 
-The notebooks retain research-environment paths and dataset-specific assumptions. They require authorized local inputs and are not yet a portable, one-command workflow.
+The public synthetic demo runs with no institutional inputs. Research notebooks use a local configuration file and explicit compound/pose identifiers; structural stages require authorized prepared complexes and optional dependencies.
 
-Read [the workflow and reproducibility guide](docs/WORKFLOW.md) before execution. It documents input expectations, dependencies and important interpretation checks. No tested, pinned environment is currently supplied.
+Read [the workflow and reproducibility guide](docs/WORKFLOW.md) before execution. It documents input expectations, dependencies and important interpretation checks. A tested pinned environment is supplied for the synthetic demo. Structural dependencies have not been validated together here.
 
 ## Research context and collaboration
 

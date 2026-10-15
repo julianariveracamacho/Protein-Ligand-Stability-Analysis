@@ -1,3 +1,8 @@
-.ipynb_checkpoints
-*.csv
-*.pdf
+__pycache__/
+*.py[cod]
+.venv/
+.ipynb_checkpoints/
+config.local.json
+data/
+results/
+examples/synthetic/output/

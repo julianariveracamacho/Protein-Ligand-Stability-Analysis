@@ -1,0 +1,7 @@
+{
+  "variant_predictions": "data/variant_predictions.csv",
+  "complex_manifest": "data/complex_manifest.csv",
+  "output_dir": "results",
+  "ligand_id": "UNK",
+  "pocket_distance_angstrom": 6.0
+}
